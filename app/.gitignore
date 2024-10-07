@@ -57,3 +57,5 @@ bin
 .factorypath
 
 *.cast
+
+tmp/
