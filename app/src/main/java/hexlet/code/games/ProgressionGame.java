@@ -6,7 +6,7 @@ public class ProgressionGame {
     public static String game() {
         Random random = new Random();
 
-        StringBuilder progression = new StringBuilder(" ");
+        StringBuilder progression = new StringBuilder();
 
         var progressionStep = random.nextInt(10);
         var progressionElement = random.nextInt(100);
