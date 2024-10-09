@@ -11,6 +11,8 @@ public class Engine {
                 return EvenGame.game();
             case "3":
                 return CalcGame.game();
+            case "4":
+                return GcdGame.game();
             default:
                 return "";
         }
