@@ -20,15 +20,10 @@ public class GcdGame {
     }
 
     public static String game() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-
         Random random = new Random();
 
-        var firstNum = 0;
-        var secondNum = 0;
-
-        firstNum = random.nextInt(20) + 1;
-        secondNum = random.nextInt(20) + 1;
+        var firstNum = random.nextInt(20) + 1;
+        var secondNum = random.nextInt(20) + 1;
 
         System.out.println("Question: " + firstNum + " " + secondNum);
 

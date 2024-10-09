@@ -4,7 +4,10 @@
 [![asciicast](https://asciinema.org/a/yF9vUGEX7R0Ghm4gLfeyJ3gXR.svg)](https://asciinema.org/a/yF9vUGEX7R0Ghm4gLfeyJ3gXR)
 
 # Calc
-[![asciicast](https://asciinema.org/a/fRBVyPVEwAR65Xvb5nPI7Ma4j.svg)](https://asciinema.org/a/fRBVyPVEwAR65Xvb5nPI7Ma4j)
+[![asciicast](https://asciinema.org/a/mI58ygdv1RAkMBzYDJsXoPDZr.svg)](https://asciinema.org/a/mI58ygdv1RAkMBzYDJsXoPDZr)
 
 # GCD
-[![asciicast](https://asciinema.org/a/gGp9VNoXbQDYItKLnw5h5pESg.svg)](https://asciinema.org/a/gGp9VNoXbQDYItKLnw5h5pESg)
+[![asciicast](https://asciinema.org/a/ofuErrEGzzd8hi8lIeIpFeVF4.svg)](https://asciinema.org/a/ofuErrEGzzd8hi8lIeIpFeVF4)
+
+# Progression
+[![asciicast](https://asciinema.org/a/Wblt7gghrl1OcpJpuSnWoDnLk.svg)](https://asciinema.org/a/Wblt7gghrl1OcpJpuSnWoDnLk)

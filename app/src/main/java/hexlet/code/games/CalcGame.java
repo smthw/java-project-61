@@ -21,19 +21,13 @@ public class CalcGame {
     }
 
     public static String game() {
-        System.out.println("What is the result of the expression?");
-
         Random random = new Random();
 
         String[] operations = {"+", "-", "*"};
 
-        var firstOperand = 0;
-        var secondOperand = 0;
-        var index = 0;
-
-        firstOperand = random.nextInt(10);
-        secondOperand = random.nextInt(10);
-        index = random.nextInt(3);
+        var firstOperand = random.nextInt(10);
+        var secondOperand = random.nextInt(10);
+        var index = random.nextInt(3);
 
         System.out.println("Question: " + firstOperand + " " + operations[index] + " " + secondOperand);
 

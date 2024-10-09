@@ -6,24 +6,38 @@ import java.util.Arrays;
 
 public class Engine {
     static String runGame(String gameNumber) {
-        switch (gameNumber) {
-            case "2":
-                return EvenGame.game();
-            case "3":
-                return CalcGame.game();
-            case "4":
-                return GcdGame.game();
-            default:
-                return "";
-        }
+        return switch (gameNumber) {
+            case "2" -> EvenGame.game();
+            case "3" -> CalcGame.game();
+            case "4" -> GcdGame.game();
+            case "5" -> ProgressionGame.game();
+            default -> "";
+        };
     }
 
-    public static void main(String gameNumber) {
+    public static void run(String gameNumber) {
         if (gameNumber.equals("1")) {
             Cli.greeting();
             return;
         } else if (gameNumber.equals("0") || !Arrays.asList(App.games).contains(gameNumber)) {
             return;
+        }
+
+        switch (gameNumber) {
+            case "2":
+                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+                break;
+            case "3":
+                System.out.println("What is the result of the expression?");
+                break;
+            case "4":
+                System.out.println("Find the greatest common divisor of given numbers.");
+                break;
+            case "5":
+                System.out.println("What number is missing in the progression?");
+                break;
+            default:
+                return;
         }
 
         var userName = Cli.greeting();

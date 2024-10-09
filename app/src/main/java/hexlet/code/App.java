@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class App {
-    public static String[] games = {"1", "2", "3", "4"};
+    public static String[] games = {"1", "2", "3", "4", "5"};
 
     public static void main(String[] args) {
         System.out.println(
@@ -12,6 +12,7 @@ public class App {
                         + "2 - Even" + "\n"
                         + "3 - Calc" + "\n"
                         + "4 - GCD" + "\n"
+                        + "5 - Progression" + "\n"
                         + "0 - Exit");
 
         System.out.print("Your choice: ");
@@ -20,7 +21,7 @@ public class App {
 
         String userAnswer = scanner.next();
 
-        Engine.main(userAnswer);
+        Engine.run(userAnswer);
 
 //         switch (userAnswer) {
 //            case "1":
