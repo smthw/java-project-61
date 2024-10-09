@@ -11,6 +11,7 @@ public class Engine {
             case "3" -> CalcGame.game();
             case "4" -> GcdGame.game();
             case "5" -> ProgressionGame.game();
+            case "6" -> PrimeGame.game();
             default -> "";
         };
     }
@@ -22,6 +23,8 @@ public class Engine {
         } else if (gameNumber.equals("0") || !Arrays.asList(App.games).contains(gameNumber)) {
             return;
         }
+
+        var userName = Cli.greeting();
 
         switch (gameNumber) {
             case "2":
@@ -36,11 +39,12 @@ public class Engine {
             case "5":
                 System.out.println("What number is missing in the progression?");
                 break;
+            case "6":
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                break;
             default:
                 return;
         }
-
-        var userName = Cli.greeting();
 
         var userAnswer = "";
         var correctAnswer = "";
