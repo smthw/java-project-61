@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class GcdGame {
+    public static final int MAX_OPERAND_VALUE = 20;
+
     static String correctAnswer(int dividend, int divisor) {
         var gcd = divisor;
         var remainderFromDivision = dividend % divisor;
@@ -22,10 +24,8 @@ public class GcdGame {
     public static String game() {
         Random random = new Random();
 
-        var n = 20;
-
-        var firstNum = random.nextInt(n) + 1;
-        var secondNum = random.nextInt(n) + 1;
+        var firstNum = random.nextInt(MAX_OPERAND_VALUE) + 1;
+        var secondNum = random.nextInt(MAX_OPERAND_VALUE) + 1;
 
         System.out.println("Question: " + firstNum + " " + secondNum);
 

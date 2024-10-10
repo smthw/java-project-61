@@ -3,10 +3,12 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class EvenGame {
+    public static final int MAX_NUMBER = 100;
+
     public static String game() {
         Random random = new Random();
-        var n = 100;
-        var randInt = random.nextInt(n);
+
+        var randInt = random.nextInt(MAX_NUMBER);
 
         System.out.println("Question: " + randInt);
 

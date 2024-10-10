@@ -12,6 +12,8 @@ import java.util.Arrays;
 public class Engine {
     public static final int MAX_ROUNDS_OF_GAME = 3;
 
+    private static final String[] GAMES = {"1", "2", "3", "4", "5", "6"};
+
     static String runGame(String gameNumber) {
         return switch (gameNumber) {
             case "2" -> EvenGame.game();
@@ -23,13 +25,11 @@ public class Engine {
         };
     }
 
-    private static final String[] games = {"1", "2", "3", "4", "5", "6"};
-
     public static void run(String gameNumber) {
         if (gameNumber.equals("1")) {
             Cli.greeting();
             return;
-        } else if (gameNumber.equals("0") || !Arrays.asList(games).contains(gameNumber)) {
+        } else if (gameNumber.equals("0") || !Arrays.asList(GAMES).contains(gameNumber)) {
             return;
         }
 
