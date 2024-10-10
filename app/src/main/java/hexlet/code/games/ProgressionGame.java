@@ -7,14 +7,18 @@ public class ProgressionGame {
         Random random = new Random();
 
         StringBuilder progression = new StringBuilder();
+        var numbersQuantity = 10;
 
-        var progressionStep = random.nextInt(10);
-        var progressionElement = random.nextInt(100);
-        var positionOfHiddenElem = random.nextInt(10);
+        var n = 10;
+        var progressionStep = random.nextInt(n);
+        var positionOfHiddenElem = random.nextInt(n);
+
+        n = 100;
+        var progressionElement = random.nextInt(n);
 
         var hiddenElem = 0;
 
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < numbersQuantity; i++) {
             if (i == positionOfHiddenElem) {
                 progression.append(" ..");
 

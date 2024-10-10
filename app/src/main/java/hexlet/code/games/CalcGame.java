@@ -25,9 +25,11 @@ public class CalcGame {
 
         String[] operations = {"+", "-", "*"};
 
-        var firstOperand = random.nextInt(10);
-        var secondOperand = random.nextInt(10);
-        var index = random.nextInt(3);
+        var n = 10;
+        var firstOperand = random.nextInt(n);
+        var secondOperand = random.nextInt(n);
+
+        var index = random.nextInt(operations.length);
 
         System.out.println("Question: " + firstOperand + " " + operations[index] + " " + secondOperand);
 

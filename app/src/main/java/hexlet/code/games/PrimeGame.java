@@ -6,7 +6,9 @@ public class PrimeGame {
     public static String game() {
         Random random = new Random();
 
-        var randInt = random.nextInt(100);
+        var n = 100;
+
+        var randInt = random.nextInt(n);
 
         System.out.println("Question: " + randInt);
 

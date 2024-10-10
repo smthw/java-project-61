@@ -3,8 +3,6 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class App {
-    public static String[] games = {"1", "2", "3", "4", "5", "6"};
-
     public static void main(String[] args) {
         System.out.println(
                 "Please enter the game number and press Enter." + "\n"
@@ -24,28 +22,6 @@ public class App {
 
         Engine.run(userAnswer);
 
-//         switch (userAnswer) {
-//            case "1":
-//                Cli.greeting();
-//                break;
-//            case "2":
-//                EvenGame.game();
-//                break;
-//             case "3":
-//                 CalcGame.game();
-//                 break;
-//            default:
-//                scanner.close();
-//
-//                return;
-//        }
-//        if (userAnswer.equals("1")) {
-//            System.out.println("Welcome to the Brain Games!");
-//
-//            Cli.greeting();
-//        }
         scanner.close();
-
-//        return;
     }
 }

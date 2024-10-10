@@ -22,8 +22,10 @@ public class GcdGame {
     public static String game() {
         Random random = new Random();
 
-        var firstNum = random.nextInt(20) + 1;
-        var secondNum = random.nextInt(20) + 1;
+        var n = 20;
+
+        var firstNum = random.nextInt(n) + 1;
+        var secondNum = random.nextInt(n) + 1;
 
         System.out.println("Question: " + firstNum + " " + secondNum);
 

@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
+
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -16,11 +21,13 @@ public class Engine {
         };
     }
 
+    static String[] games = {"1", "2", "3", "4", "5", "6"};
+
     public static void run(String gameNumber) {
         if (gameNumber.equals("1")) {
             Cli.greeting();
             return;
-        } else if (gameNumber.equals("0") || !Arrays.asList(App.games).contains(gameNumber)) {
+        } else if (gameNumber.equals("0") || !Arrays.asList(games).contains(gameNumber)) {
             return;
         }
 
@@ -49,9 +56,11 @@ public class Engine {
         var userAnswer = "";
         var correctAnswer = "";
 
+        var rounds = 3;
+
         Scanner scanner = new Scanner(System.in);
 
-        for (var i = 0; i < 3; i++) {
+        for (var i = 0; i < rounds; i++) {
             correctAnswer = runGame(gameNumber);
 
             System.out.print("Your answer: ");
