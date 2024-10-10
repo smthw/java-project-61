@@ -10,6 +10,8 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class Engine {
+    public static final int MAX_ROUNDS_OF_GAME = 3;
+
     static String runGame(String gameNumber) {
         return switch (gameNumber) {
             case "2" -> EvenGame.game();
@@ -21,7 +23,7 @@ public class Engine {
         };
     }
 
-    static String[] games = {"1", "2", "3", "4", "5", "6"};
+    private static final String[] games = {"1", "2", "3", "4", "5", "6"};
 
     public static void run(String gameNumber) {
         if (gameNumber.equals("1")) {
@@ -56,11 +58,9 @@ public class Engine {
         var userAnswer = "";
         var correctAnswer = "";
 
-        var rounds = 3;
-
         Scanner scanner = new Scanner(System.in);
 
-        for (var i = 0; i < rounds; i++) {
+        for (var i = 0; i < MAX_ROUNDS_OF_GAME; i++) {
             correctAnswer = runGame(gameNumber);
 
             System.out.print("Your answer: ");

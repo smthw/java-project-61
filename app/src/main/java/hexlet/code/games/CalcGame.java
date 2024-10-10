@@ -3,6 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class CalcGame {
+    public static final int MAX_OPERAND_VALUE = 10;
+
     static String correctAnswer(int firstOperand, int secondOperand, String operation) {
         var expressionResult = 0;
 
@@ -25,9 +27,8 @@ public class CalcGame {
 
         String[] operations = {"+", "-", "*"};
 
-        var n = 10;
-        var firstOperand = random.nextInt(n);
-        var secondOperand = random.nextInt(n);
+        var firstOperand = random.nextInt(MAX_OPERAND_VALUE);
+        var secondOperand = random.nextInt(MAX_OPERAND_VALUE);
 
         var index = random.nextInt(operations.length);
 
