@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
+
 import java.util.Scanner;
 
 public class App {
@@ -20,7 +26,28 @@ public class App {
 
         String userAnswer = scanner.next();
 
-        Engine.run(userAnswer);
+        switch (userAnswer) {
+            case "1":
+                Cli.greeting();
+                break;
+            case "2":
+                EvenGame.game();
+                break;
+            case "3":
+                CalcGame.game();
+                break;
+            case "4":
+                GcdGame.game();
+                break;
+            case "5":
+                ProgressionGame.game();
+                break;
+            case "6":
+                PrimeGame.game();
+                break;
+            default:
+                return;
+        }
 
         scanner.close();
     }

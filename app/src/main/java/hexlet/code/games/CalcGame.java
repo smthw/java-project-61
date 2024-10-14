@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class CalcGame {
     public static final int MAX_OPERAND_VALUE = 10;
@@ -22,18 +23,31 @@ public class CalcGame {
         return String.valueOf(expressionResult);
     }
 
-    public static String game() {
-        Random random = new Random();
+    public static void game() {
+        String[][] questionsAnswers = new String[Utils.MAX_ROUNDS_OF_GAME][Utils.QA_FOR_ONE_ROUND];
+
+        var question = "";
+        var answer = "";
 
         String[] operations = {"+", "-", "*"};
 
-        var firstOperand = random.nextInt(MAX_OPERAND_VALUE);
-        var secondOperand = random.nextInt(MAX_OPERAND_VALUE);
+        var firstOperand = 0;
+        var secondOperand = 0;
+        var index = 0;
 
-        var index = random.nextInt(operations.length);
+        for (var i = 0; i < Utils.MAX_ROUNDS_OF_GAME; i++) {
+            firstOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+            secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+            index = Utils.randomNumber(operations.length);
 
-        System.out.println("Question: " + firstOperand + " " + operations[index] + " " + secondOperand);
+            question = "Question: " + firstOperand + " " + operations[index] + " " + secondOperand;
 
-        return correctAnswer(firstOperand, secondOperand, operations[index]);
+            answer = correctAnswer(firstOperand, secondOperand, operations[index]);
+
+            questionsAnswers[i][Utils.QUESTION_INDEX] = question;
+            questionsAnswers[i][Utils.ANSWER_INDEX] = answer;
+        }
+
+        Engine.playGame(questionsAnswers, "What is the result of the expression?");
     }
 }
