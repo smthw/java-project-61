@@ -39,7 +39,7 @@ public class ProgressionGame {
                 progressionElement = progressionElement + progressionStep;
             }
 
-            questionsAnswers[i][Utils.QUESTION_INDEX] = "Question: " + progression;
+            questionsAnswers[i][Utils.QUESTION_INDEX] = "Question:" + progression;
             questionsAnswers[i][Utils.ANSWER_INDEX] = String.valueOf(hiddenElem);
         }
 
