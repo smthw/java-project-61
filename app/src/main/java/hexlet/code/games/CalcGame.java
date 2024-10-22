@@ -27,21 +27,14 @@ public class CalcGame {
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
-        var question = "";
-        var answer = "";
-
         String[] operations = {"+", "-", "*"};
 
-        var firstOperand = 0;
-        var secondOperand = 0;
-        var index = 0;
+        var firstOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+        var secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+        var index = Utils.randomNumber(operations.length);
 
-        firstOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
-        secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
-        index = Utils.randomNumber(operations.length);
-
-        question = "Question: " + firstOperand + " " + operations[index] + " " + secondOperand;
-        answer = correctAnswer(firstOperand, secondOperand, operations[index]);
+        var question = "Question: " + firstOperand + " " + operations[index] + " " + secondOperand;
+        var answer = correctAnswer(firstOperand, secondOperand, operations[index]);
 
         round[Engine.QUESTION_INDEX] = question;
         round[Engine.ANSWER_INDEX] = answer;

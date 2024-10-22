@@ -14,13 +14,9 @@ public class EvenGame {
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
-        var questionNumber = 0;
-        var question = "";
-        var answer = "";
-
-        questionNumber = Utils.randomNumber(MAX_NUMBER);
-        question = String.valueOf(questionNumber);
-        answer = correctAnswer(questionNumber);
+        var questionNumber = Utils.randomNumber(MAX_NUMBER);
+        var question = String.valueOf(questionNumber);
+        var answer = correctAnswer(questionNumber);
 
         round[Engine.QUESTION_INDEX] = "Question: " + question;
         round[Engine.ANSWER_INDEX] = answer;
