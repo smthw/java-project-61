@@ -8,6 +8,10 @@ public class PrimeGame {
     static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     static String correctAnswer(int number) {
+        if (number == 1) {
+            return "no";
+        }
+
         for (var i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
                 return "no";
@@ -20,7 +24,7 @@ public class PrimeGame {
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
-        var questionNumber = Utils.randomNumber(MAX_NUMBER);
+        var questionNumber = Utils.randomNumber(MAX_NUMBER) + 1;
         var question = String.valueOf(questionNumber);
         var answer = correctAnswer(questionNumber);
 
