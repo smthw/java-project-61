@@ -4,9 +4,17 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class GcdGame {
-    public static final int MAX_OPERAND_VALUE = 20;
+    static final int MAX_OPERAND_VALUE = 20;
+    static final String GAME_RULE = "Find the greatest common divisor of given numbers.";
 
     static String correctAnswer(int dividend, int divisor) {
+        if (divisor > dividend) {
+            var temp = dividend;
+
+            dividend = divisor;
+            divisor = temp;
+        }
+
         var gcd = divisor;
         var remainderFromDivision = dividend % divisor;
 
@@ -22,8 +30,8 @@ public class GcdGame {
         return String.valueOf(gcd);
     }
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Utils.MAX_ROUNDS_OF_GAME][Utils.QA_FOR_ONE_ROUND];
+    static String[] generateRoundData() {
+        String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
         var question = "";
         var answer = "";
@@ -31,17 +39,25 @@ public class GcdGame {
         var firstNum = 0;
         var secondNum = 0;
 
-        for (var i = 0; i < Utils.MAX_ROUNDS_OF_GAME; i++) {
-            firstNum = Utils.randomNumber(MAX_OPERAND_VALUE) + 1;
-            secondNum = Utils.randomNumber(MAX_OPERAND_VALUE) + 1;
+        firstNum = Utils.randomNumber(MAX_OPERAND_VALUE) + 1;
+        secondNum = Utils.randomNumber(MAX_OPERAND_VALUE) + 1;
 
-            question = "Question: " + firstNum + " " + secondNum;
-            answer = firstNum >= secondNum ? correctAnswer(firstNum, secondNum) : correctAnswer(secondNum, firstNum);
+        question = "Question: " + firstNum + " " + secondNum;
+        answer = correctAnswer(firstNum, secondNum);
 
-            questionsAnswers[i][Utils.QUESTION_INDEX] = question;
-            questionsAnswers[i][Utils.ANSWER_INDEX] = answer;
+        round[Engine.QUESTION_INDEX] = "Question: " + question;
+        round[Engine.ANSWER_INDEX] = answer;
+
+        return round;
+    }
+
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
         }
 
-        Engine.playGame(questionsAnswers, "Find the greatest common divisor of given numbers.");
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 }

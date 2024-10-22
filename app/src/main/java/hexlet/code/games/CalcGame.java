@@ -4,7 +4,8 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class CalcGame {
-    public static final int MAX_OPERAND_VALUE = 10;
+    static final int MAX_OPERAND_VALUE = 10;
+    static final String GAME_RULE = "What is the result of the expression?";
 
     static String correctAnswer(int firstOperand, int secondOperand, String operation) {
         var expressionResult = 0;
@@ -23,8 +24,8 @@ public class CalcGame {
         return String.valueOf(expressionResult);
     }
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Utils.MAX_ROUNDS_OF_GAME][Utils.QA_FOR_ONE_ROUND];
+    static String[] generateRoundData() {
+        String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
         var question = "";
         var answer = "";
@@ -35,19 +36,26 @@ public class CalcGame {
         var secondOperand = 0;
         var index = 0;
 
-        for (var i = 0; i < Utils.MAX_ROUNDS_OF_GAME; i++) {
-            firstOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
-            secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
-            index = Utils.randomNumber(operations.length);
+        firstOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+        secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+        index = Utils.randomNumber(operations.length);
 
-            question = "Question: " + firstOperand + " " + operations[index] + " " + secondOperand;
+        question = "Question: " + firstOperand + " " + operations[index] + " " + secondOperand;
+        answer = correctAnswer(firstOperand, secondOperand, operations[index]);
 
-            answer = correctAnswer(firstOperand, secondOperand, operations[index]);
+        round[Engine.QUESTION_INDEX] = question;
+        round[Engine.ANSWER_INDEX] = answer;
 
-            questionsAnswers[i][Utils.QUESTION_INDEX] = question;
-            questionsAnswers[i][Utils.ANSWER_INDEX] = answer;
+        return round;
+    }
+
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
         }
 
-        Engine.playGame(questionsAnswers, "What is the result of the expression?");
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 }

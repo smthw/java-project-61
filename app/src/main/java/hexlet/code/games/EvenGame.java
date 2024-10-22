@@ -4,24 +4,37 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class EvenGame {
-    public static final int MAX_NUMBER = 100;
+    static final int MAX_NUMBER = 100;
+    static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Utils.MAX_ROUNDS_OF_GAME][Utils.QA_FOR_ONE_ROUND];
+    static String correctAnswer(int number) {
+        return number % 2 == 0 ? "yes" : "no";
+    }
+
+    static String[] generateRoundData() {
+        String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
         var questionNumber = 0;
         var question = "";
         var answer = "";
 
-        for (var i = 0; i < Utils.MAX_ROUNDS_OF_GAME; i++) {
-            questionNumber = Utils.randomNumber(MAX_NUMBER);
-            question = String.valueOf(questionNumber);
-            answer = questionNumber % 2 == 0 ? "yes" : "no";
+        questionNumber = Utils.randomNumber(MAX_NUMBER);
+        question = String.valueOf(questionNumber);
+        answer = correctAnswer(questionNumber);
 
-            questionsAnswers[i][Utils.QUESTION_INDEX] = "Question: " + question;
-            questionsAnswers[i][Utils.ANSWER_INDEX] = answer;
+        round[Engine.QUESTION_INDEX] = "Question: " + question;
+        round[Engine.ANSWER_INDEX] = answer;
+
+        return round;
+    }
+
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
         }
 
-        Engine.playGame(questionsAnswers, "Answer 'yes' if the number is even, otherwise answer 'no'.");
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 }

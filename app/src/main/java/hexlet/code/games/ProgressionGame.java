@@ -4,45 +4,61 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class ProgressionGame {
-    public static final int PROGRESSION_LENGTH = 10;
-    public static final int PROGRESSION_START_RANDOM = 100;
-    public static final int PROGRESSION_STEP_RANDOM = 10;
-    public static final int POS_OF_HIDDEN_ELEM_RANDOM = 10;
+    static final int PROGRESSION_LENGTH = 10;
+    static final int PROGRESSION_START_RANDOM = 100;
+    static final int PROGRESSION_STEP_RANDOM = 10;
+    static final int POS_OF_HIDDEN_ELEM_RANDOM = 10;
+    static final String GAME_RULE = "What number is missing in the progression?";
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Utils.MAX_ROUNDS_OF_GAME][Utils.QA_FOR_ONE_ROUND];
-
-        StringBuilder progression = new StringBuilder();
-
-        var progressionStep = 0;
-        var positionOfHiddenElem = 0;
-        var progressionElement = 0;
-
-        var hiddenElem = 0;
-
-        for (var i = 0; i < Utils.MAX_ROUNDS_OF_GAME; i++) {
-            progression.setLength(0);
-
-            progressionStep = Utils.randomNumber(PROGRESSION_STEP_RANDOM);
-            positionOfHiddenElem = Utils.randomNumber(POS_OF_HIDDEN_ELEM_RANDOM);
-            progressionElement = Utils.randomNumber(PROGRESSION_START_RANDOM);
-
-            for (var j = 0; j < PROGRESSION_LENGTH; j++) {
-                if (j == positionOfHiddenElem) {
-                    progression.append(" ..");
-
-                    hiddenElem = progressionElement;
-                } else {
-                    progression.append(" ").append(progressionElement);
-                }
-
-                progressionElement = progressionElement + progressionStep;
-            }
-
-            questionsAnswers[i][Utils.QUESTION_INDEX] = "Question:" + progression;
-            questionsAnswers[i][Utils.ANSWER_INDEX] = String.valueOf(hiddenElem);
+    static String correctAnswer(int progressionStep, int positionOfHiddenElem, int progressionFirstElement) {
+        if (positionOfHiddenElem == 0) {
+            return String.valueOf(progressionFirstElement);
         }
 
-        Engine.playGame(questionsAnswers, "What number is missing in the progression?");
+        var hiddenElem = progressionFirstElement + progressionStep * positionOfHiddenElem;
+
+        return  String.valueOf(hiddenElem);
+    }
+
+    static StringBuilder generateProgression(int progressionStep, int positionOfHiddenElem, int progressionElement) {
+        StringBuilder progression = new StringBuilder();
+
+        for (var j = 0; j < PROGRESSION_LENGTH; j++) {
+            if (j == positionOfHiddenElem) {
+                progression.append(" ..");
+            } else {
+                progression.append(" ").append(progressionElement);
+            }
+
+            progressionElement = progressionElement + progressionStep;
+        }
+
+        return progression;
+    }
+
+    static String[] generateRoundData() {
+        String[] round = new String[Engine.QA_FOR_ONE_ROUND];
+
+        var progressionStep = Utils.randomNumber(PROGRESSION_STEP_RANDOM);
+        var positionOfHiddenElem = Utils.randomNumber(POS_OF_HIDDEN_ELEM_RANDOM);
+        var progressionFirstElement = Utils.randomNumber(PROGRESSION_START_RANDOM);
+
+        var question = generateProgression(progressionStep, positionOfHiddenElem, progressionFirstElement);
+        var answer = correctAnswer(progressionStep, positionOfHiddenElem, progressionFirstElement);
+
+        round[Engine.QUESTION_INDEX] = "Question:" + question;
+        round[Engine.ANSWER_INDEX] = answer;
+
+        return round;
+    }
+
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
+        }
+
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 }
