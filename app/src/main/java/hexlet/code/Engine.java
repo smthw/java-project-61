@@ -18,13 +18,13 @@ public class Engine {
 
         Scanner scanner = new Scanner(System.in);
 
-        for (var i = 0; i < MAX_ROUNDS_OF_GAME; i++) {
-            System.out.println(questionsAnswers[i][QUESTION_INDEX]);
+        for (var round : questionsAnswers) {
+            System.out.println(round[QUESTION_INDEX]);
 
             System.out.print("Your answer: ");
 
             userAnswer = scanner.next();
-            correctAnswer = questionsAnswers[i][ANSWER_INDEX];
+            correctAnswer = round[ANSWER_INDEX];
 
             if (userAnswer.equals(correctAnswer)) {
                 System.out.println("Correct!");
