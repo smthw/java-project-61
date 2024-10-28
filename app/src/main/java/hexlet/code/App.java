@@ -1,10 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GcdGame;
-import hexlet.code.games.PrimeGame;
-import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -31,19 +27,19 @@ public class App {
                 Cli.greeting();
                 break;
             case "2":
-                EvenGame.game();
+                Even.game();
                 break;
             case "3":
-                CalcGame.game();
+                Calc.game();
                 break;
             case "4":
-                GcdGame.game();
+                Gcd.game();
                 break;
             case "5":
-                ProgressionGame.game();
+                Progression.game();
                 break;
             case "6":
-                PrimeGame.game();
+                Prime.game();
                 break;
             default:
                 return;

@@ -3,31 +3,18 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class GcdGame {
+public class Gcd {
     static final int MAX_OPERAND_VALUE = 20;
     static final String GAME_RULE = "Find the greatest common divisor of given numbers.";
 
-    static String correctAnswer(int dividend, int divisor) {
-        if (divisor > dividend) {
-            var temp = dividend;
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
 
-            dividend = divisor;
-            divisor = temp;
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
         }
 
-        var gcd = divisor;
-        var remainderFromDivision = dividend % divisor;
-
-        while (remainderFromDivision != 0) {
-            gcd = divisor;
-
-            remainderFromDivision = dividend % divisor;
-
-            dividend = divisor;
-            divisor = remainderFromDivision;
-        }
-
-        return String.valueOf(gcd);
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 
     static String[] generateRoundData() {
@@ -51,13 +38,26 @@ public class GcdGame {
         return round;
     }
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+    static String correctAnswer(int dividend, int divisor) {
+        if (divisor > dividend) {
+            var temp = dividend;
 
-        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
-            questionsAnswers[i] = generateRoundData();
+            dividend = divisor;
+            divisor = temp;
         }
 
-        Engine.playGame(questionsAnswers, GAME_RULE);
+        var gcd = divisor;
+        var remainderFromDivision = dividend % divisor;
+
+        while (remainderFromDivision != 0) {
+            gcd = divisor;
+
+            remainderFromDivision = dividend % divisor;
+
+            dividend = divisor;
+            divisor = remainderFromDivision;
+        }
+
+        return String.valueOf(gcd);
     }
 }

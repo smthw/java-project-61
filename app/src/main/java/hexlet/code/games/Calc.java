@@ -3,25 +3,18 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class CalcGame {
+public class Calc {
     static final int MAX_OPERAND_VALUE = 10;
     static final String GAME_RULE = "What is the result of the expression?";
 
-    static String correctAnswer(int firstOperand, int secondOperand, String operation) {
-        var expressionResult = 0;
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
 
-        switch (operation) {
-            case "+":
-                expressionResult = firstOperand + secondOperand;
-                break;
-            case "-":
-                expressionResult = firstOperand - secondOperand;
-                break;
-            default:
-                expressionResult = firstOperand * secondOperand;
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
         }
 
-        return String.valueOf(expressionResult);
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 
     static String[] generateRoundData() {
@@ -42,13 +35,20 @@ public class CalcGame {
         return round;
     }
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+    static String correctAnswer(int firstOperand, int secondOperand, String operation) {
+        var expressionResult = 0;
 
-        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
-            questionsAnswers[i] = generateRoundData();
+        switch (operation) {
+            case "+":
+                expressionResult = firstOperand + secondOperand;
+                break;
+            case "-":
+                expressionResult = firstOperand - secondOperand;
+                break;
+            default:
+                expressionResult = firstOperand * secondOperand;
         }
 
-        Engine.playGame(questionsAnswers, GAME_RULE);
+        return String.valueOf(expressionResult);
     }
 }

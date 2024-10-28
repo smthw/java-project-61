@@ -3,12 +3,18 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class EvenGame {
+public class Even {
     static final int MAX_NUMBER = 100;
     static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    static String correctAnswer(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    public static void game() {
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+
+        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
+            questionsAnswers[i] = generateRoundData();
+        }
+
+        Engine.playGame(questionsAnswers, GAME_RULE);
     }
 
     static String[] generateRoundData() {
@@ -24,13 +30,7 @@ public class EvenGame {
         return round;
     }
 
-    public static void game() {
-        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
-
-        for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
-            questionsAnswers[i] = generateRoundData();
-        }
-
-        Engine.playGame(questionsAnswers, GAME_RULE);
+    static String correctAnswer(int number) {
+        return number % 2 == 0 ? "yes" : "no";
     }
 }
