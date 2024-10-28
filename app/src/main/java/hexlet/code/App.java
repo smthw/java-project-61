@@ -1,13 +1,17 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         System.out.println(
-                "Please enter the game number and press Enter." + "\n"
+                "Please enter the run number and press Enter." + "\n"
                         + "1 - Greet" + "\n"
                         + "2 - Even" + "\n"
                         + "3 - Calc" + "\n"
@@ -27,19 +31,19 @@ public class App {
                 Cli.greeting();
                 break;
             case "2":
-                Even.game();
+                Even.run();
                 break;
             case "3":
-                Calc.game();
+                Calc.run();
                 break;
             case "4":
-                Gcd.game();
+                Gcd.run();
                 break;
             case "5":
-                Progression.game();
+                Progression.run();
                 break;
             case "6":
-                Prime.game();
+                Prime.run();
                 break;
             default:
                 return;

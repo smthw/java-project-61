@@ -8,7 +8,7 @@ public class Calc {
     static final String GAME_RULE = "What is the result of the expression?";
     static final String[] OPERATIONS = {"+", "-", "*"};
 
-    public static void game() {
+    public static void run() {
         String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
 
         for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
@@ -26,7 +26,7 @@ public class Calc {
         var index = Utils.randomNumber(OPERATIONS.length);
 
         var question = firstOperand + " " + OPERATIONS[index] + " " + secondOperand;
-        var answer = Calculate(firstOperand, secondOperand, OPERATIONS[index]);
+        var answer = calculate(firstOperand, secondOperand, OPERATIONS[index]);
 
         round[Engine.QUESTION_INDEX] = question;
         round[Engine.ANSWER_INDEX] = String.valueOf(answer);
@@ -34,7 +34,7 @@ public class Calc {
         return round;
     }
 
-    static int Calculate(int firstOperand, int secondOperand, String operation) {
+    static int calculate(int firstOperand, int secondOperand, String operation) {
         return switch (operation) {
             case "+" -> firstOperand + secondOperand;
             case "-" -> firstOperand - secondOperand;

@@ -10,7 +10,7 @@ public class Progression {
     static final int POS_OF_HIDDEN_ELEM_RANDOM = 10;
     static final String GAME_RULE = "What number is missing in the progression?";
 
-    public static void game() {
+    public static void run() {
         String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
 
         for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {

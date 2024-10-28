@@ -7,7 +7,7 @@ public class Gcd {
     static final int MAX_OPERAND_VALUE = 20;
     static final String GAME_RULE = "Find the greatest common divisor of given numbers.";
 
-    public static void game() {
+    public static void run() {
         String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
 
         for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {

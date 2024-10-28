@@ -7,7 +7,7 @@ public class Even {
     static final int MAX_NUMBER = 100;
     static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void game() {
+    public static void run() {
         String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
 
         for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
