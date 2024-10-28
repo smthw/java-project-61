@@ -19,46 +19,37 @@ public class Progression {
 
         Engine.playGame(questionsAnswers, GAME_RULE);
     }
-
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
         var progressionStep = Utils.randomNumber(PROGRESSION_STEP_RANDOM);
-        var positionOfHiddenElem = Utils.randomNumber(POS_OF_HIDDEN_ELEM_RANDOM);
+        var hiddenElemIndex = Utils.randomNumber(POS_OF_HIDDEN_ELEM_RANDOM);
         var progressionFirstElement = Utils.randomNumber(PROGRESSION_START_RANDOM);
 
-        var question = generateProgression(progressionStep, positionOfHiddenElem, progressionFirstElement);
-        var answer = correctAnswer(progressionStep, positionOfHiddenElem, progressionFirstElement);
+        var progression = generateProgression(progressionFirstElement, progressionStep, PROGRESSION_LENGTH);
+        var answer = progression[hiddenElemIndex];
 
-        round[Engine.QUESTION_INDEX] = "Question:" + question;
+        progression[hiddenElemIndex] = "..";
+
+        round[Engine.QUESTION_INDEX] = "Question: " + String.join(" ", progression);
         round[Engine.ANSWER_INDEX] = answer;
 
         return round;
     }
 
-    static StringBuilder generateProgression(int progressionStep, int positionOfHiddenElem, int progressionElement) {
-        StringBuilder progression = new StringBuilder();
+    static String[] generateProgression(int firstElement, int progressionStep, int progressionLength) {
+        String[] progression = new String[progressionLength];
 
-        for (var j = 0; j < PROGRESSION_LENGTH; j++) {
-            if (j == positionOfHiddenElem) {
-                progression.append(" ..");
-            } else {
-                progression.append(" ").append(progressionElement);
-            }
+        progression[0] = String.valueOf(firstElement);
 
-            progressionElement = progressionElement + progressionStep;
+        var curElement = firstElement;
+
+        for (var i = 1; i < progressionLength; i++) {
+            curElement = curElement + progressionStep;
+
+            progression[i] = String.valueOf(curElement);
         }
 
         return progression;
-    }
-
-    static String correctAnswer(int progressionStep, int positionOfHiddenElem, int progressionFirstElement) {
-        if (positionOfHiddenElem == 0) {
-            return String.valueOf(progressionFirstElement);
-        }
-
-        var hiddenElem = progressionFirstElement + progressionStep * positionOfHiddenElem;
-
-        return  String.valueOf(hiddenElem);
     }
 }
