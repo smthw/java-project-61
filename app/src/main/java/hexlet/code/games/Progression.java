@@ -31,7 +31,7 @@ public class Progression {
 
         progression[hiddenElemIndex] = "..";
 
-        round[Engine.QUESTION_INDEX] = "Question: " + String.join(" ", progression);
+        round[Engine.QUESTION_INDEX] = String.join(" ", progression);
         round[Engine.ANSWER_INDEX] = answer;
 
         return round;

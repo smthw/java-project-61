@@ -32,7 +32,7 @@ public class Gcd {
         question = "Question: " + firstNum + " " + secondNum;
         answer = correctAnswer(firstNum, secondNum);
 
-        round[Engine.QUESTION_INDEX] = "Question: " + question;
+        round[Engine.QUESTION_INDEX] = question;
         round[Engine.ANSWER_INDEX] = answer;
 
         return round;

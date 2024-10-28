@@ -24,7 +24,7 @@ public class Prime {
         var question = String.valueOf(questionNumber);
         var answer = correctAnswer(questionNumber);
 
-        round[Engine.QUESTION_INDEX] = "Question: " + question;
+        round[Engine.QUESTION_INDEX] = question;
         round[Engine.ANSWER_INDEX] = answer;
 
         return round;

@@ -26,7 +26,7 @@ public class Calc {
         var secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
         var index = Utils.randomNumber(operations.length);
 
-        var question = "Question: " + firstOperand + " " + operations[index] + " " + secondOperand;
+        var question = firstOperand + " " + operations[index] + " " + secondOperand;
         var answer = correctAnswer(firstOperand, secondOperand, operations[index]);
 
         round[Engine.QUESTION_INDEX] = question;

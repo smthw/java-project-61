@@ -19,7 +19,7 @@ public class Engine {
         Scanner scanner = new Scanner(System.in);
 
         for (var round : questionsAnswers) {
-            System.out.println(round[QUESTION_INDEX]);
+            System.out.println("Question: " + round[QUESTION_INDEX]);
 
             System.out.print("Your answer: ");
 
