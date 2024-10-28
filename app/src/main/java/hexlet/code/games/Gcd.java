@@ -26,8 +26,8 @@ public class Gcd {
         var firstNum = 0;
         var secondNum = 0;
 
-        firstNum = Utils.randomNumber(MAX_OPERAND_VALUE) + 1;
-        secondNum = Utils.randomNumber(MAX_OPERAND_VALUE) + 1;
+        firstNum = Utils.randomNumber(MAX_OPERAND_VALUE);
+        secondNum = Utils.randomNumber(MAX_OPERAND_VALUE);
 
         question = "Question: " + firstNum + " " + secondNum;
         answer = correctAnswer(firstNum, secondNum);

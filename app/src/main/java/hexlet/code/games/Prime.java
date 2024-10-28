@@ -20,7 +20,7 @@ public class Prime {
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
-        var questionNumber = Utils.randomNumber(MAX_NUMBER) + 1;
+        var questionNumber = Utils.randomNumber(MAX_NUMBER);
         var question = String.valueOf(questionNumber);
         var answer = correctAnswer(questionNumber);
 
