@@ -22,7 +22,7 @@ public class Prime {
 
         var questionNumber = Utils.randomNumber(MAX_NUMBER);
         var question = String.valueOf(questionNumber);
-        var answer = correctAnswer(questionNumber);
+        var answer = isPrime(questionNumber) ? "yes" : "no";
 
         round[Engine.QUESTION_INDEX] = question;
         round[Engine.ANSWER_INDEX] = answer;
@@ -30,17 +30,18 @@ public class Prime {
         return round;
     }
 
-    static String correctAnswer(int number) {
+    static boolean isPrime(int number) {
         if (number == 1) {
-            return "no";
+            return false;
         }
 
         for (var i = 2; i <= number / 2; i++) {
             if (number % i == 0) {
-                return "no";
+                return false;
             }
         }
 
-        return "yes";
+        return true;
     }
+
 }

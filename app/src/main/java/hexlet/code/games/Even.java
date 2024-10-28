@@ -22,7 +22,7 @@ public class Even {
 
         var questionNumber = Utils.randomNumber(MAX_NUMBER);
         var question = String.valueOf(questionNumber);
-        var answer = correctAnswer(questionNumber);
+        var answer = isEven(questionNumber) ? "yes" : "no";
 
         round[Engine.QUESTION_INDEX] = question;
         round[Engine.ANSWER_INDEX] = answer;
@@ -30,7 +30,7 @@ public class Even {
         return round;
     }
 
-    static String correctAnswer(int number) {
-        return number % 2 == 0 ? "yes" : "no";
+    static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

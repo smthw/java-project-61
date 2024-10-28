@@ -20,25 +20,19 @@ public class Gcd {
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
-        var question = "";
-        var answer = "";
+        var firstNum = Utils.randomNumber(MAX_OPERAND_VALUE);
+        var secondNum = Utils.randomNumber(MAX_OPERAND_VALUE);
 
-        var firstNum = 0;
-        var secondNum = 0;
-
-        firstNum = Utils.randomNumber(MAX_OPERAND_VALUE);
-        secondNum = Utils.randomNumber(MAX_OPERAND_VALUE);
-
-        question = "Question: " + firstNum + " " + secondNum;
-        answer = correctAnswer(firstNum, secondNum);
+        var question = "Question: " + firstNum + " " + secondNum;
+        var answer = findGcd(firstNum, secondNum);
 
         round[Engine.QUESTION_INDEX] = question;
-        round[Engine.ANSWER_INDEX] = answer;
+        round[Engine.ANSWER_INDEX] = String.valueOf(answer);
 
         return round;
     }
 
-    static String correctAnswer(int dividend, int divisor) {
+    static int findGcd(int dividend, int divisor) {
         if (divisor > dividend) {
             var temp = dividend;
 
@@ -58,6 +52,6 @@ public class Gcd {
             divisor = remainderFromDivision;
         }
 
-        return String.valueOf(gcd);
+        return gcd;
     }
 }
