@@ -6,8 +6,6 @@ import hexlet.code.Utils;
 public class Progression {
     static final int PROGRESSION_LENGTH = 10;
     static final int PROGRESSION_START_RANDOM = 100;
-//    static final int PROGRESSION_STEP_RANDOM = 10;
-//    static final int POS_OF_HIDDEN_ELEM_RANDOM = 10;
     static final String GAME_RULE = "What number is missing in the progression?";
 
     public static void run() {
