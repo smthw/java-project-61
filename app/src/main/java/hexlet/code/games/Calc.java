@@ -4,12 +4,11 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
-    static final int MAX_OPERAND_VALUE = 10;
     static final String GAME_RULE = "What is the result of the expression?";
     static final String[] OPERATIONS = {"+", "-", "*"};
 
     public static void run() {
-        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][Engine.QA_FOR_ONE_ROUND];
+        String[][] questionsAnswers = new String[Engine.MAX_ROUNDS_OF_GAME][];
 
         for (var i = 0; i < Engine.MAX_ROUNDS_OF_GAME; i++) {
             questionsAnswers[i] = generateRoundData();
@@ -21,8 +20,8 @@ public class Calc {
     static String[] generateRoundData() {
         String[] round = new String[Engine.QA_FOR_ONE_ROUND];
 
-        var firstOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
-        var secondOperand = Utils.randomNumber(MAX_OPERAND_VALUE);
+        var firstOperand = Utils.randomNumber();
+        var secondOperand = Utils.randomNumber();
         var index = Utils.randomNumber(OPERATIONS.length);
 
         var question = firstOperand + " " + OPERATIONS[index] + " " + secondOperand;
