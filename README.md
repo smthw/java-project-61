@@ -1,2 +1,5 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/smthw/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/smthw/java-project-61/actions)
+
+# Even
+[![asciicast](https://asciinema.org/a/yF9vUGEX7R0Ghm4gLfeyJ3gXR.svg)](https://asciinema.org/a/yF9vUGEX7R0Ghm4gLfeyJ3gXR)
