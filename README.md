@@ -6,3 +6,6 @@
 
 # Calc
 [![asciicast](https://asciinema.org/a/2ETnY7uAPGWnZLm5jkFd3SHSa.svg)](https://asciinema.org/a/2ETnY7uAPGWnZLm5jkFd3SHSa)
+
+# GCD
+[![asciicast](https://asciinema.org/a/YLuxP0hFyhoWSq7ihH5UGjeWE.svg)](https://asciinema.org/a/YLuxP0hFyhoWSq7ihH5UGjeWE)
