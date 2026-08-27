@@ -22,11 +22,11 @@ public class App {
                         + "\n"
                         + "0 - Exit");
 
+        System.out.println("Your choice: ");
+
         Scanner scanner = new Scanner(System.in);
 
         String userAnswer = scanner.next();
-
-        System.out.println("Your choice: " + userAnswer);
 
         switch (userAnswer) {
             case "1":
