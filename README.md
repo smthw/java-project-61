@@ -3,3 +3,6 @@
 
 # Even
 [![asciicast](https://asciinema.org/a/yF9vUGEX7R0Ghm4gLfeyJ3gXR.svg)](https://asciinema.org/a/yF9vUGEX7R0Ghm4gLfeyJ3gXR)
+
+# Calc
+[![asciicast](https://asciinema.org/a/2ETnY7uAPGWnZLm5jkFd3SHSa.svg)](https://asciinema.org/a/2ETnY7uAPGWnZLm5jkFd3SHSa)
