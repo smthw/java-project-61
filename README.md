@@ -12,3 +12,6 @@
 
 # Progression
 [![asciicast](https://asciinema.org/a/4HFEMSrjBQnz3k6KmICbuBGQI.svg)](https://asciinema.org/a/4HFEMSrjBQnz3k6KmICbuBGQI)
+
+# Prime
+[![asciicast](https://asciinema.org/a/ipo5MXU8FQkmIoAUvV8y4YXPu.svg)](https://asciinema.org/a/ipo5MXU8FQkmIoAUvV8y4YXPu)
