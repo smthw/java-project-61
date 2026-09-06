@@ -23,7 +23,7 @@ public class Gcd {
         var firstNum = Utils.randomNumber(MAX_OPERAND_VALUE);
         var secondNum = Utils.randomNumber(MAX_OPERAND_VALUE);
 
-        var question = "Question: " + firstNum + " " + secondNum;
+        var question = firstNum + " " + secondNum;
         var answer = findGcd(firstNum, secondNum);
 
         round[Engine.QUESTION_INDEX] = question;

@@ -9,7 +9,7 @@ public class Engine {
     public static final int ANSWER_INDEX = 1;
 
     public static void playGame(String[][] questionsAnswers, String gameRules) {
-        var userName = Cli.greeting();
+        var userName = greetUser();
 
         System.out.println(gameRules);
 
@@ -41,5 +41,19 @@ public class Engine {
         }
 
         System.out.println("Congratulations, " + userName + "!");
+    }
+
+    private static String greetUser() {
+        System.out.println("Welcome to the Brain Games!");
+
+        System.out.print("May I have your name? ");
+
+        Scanner scanner = new Scanner(System.in);
+
+        String userName = scanner.next();
+
+        System.out.println("Hello, " + userName + "!");
+
+        return userName;
     }
 }

@@ -48,7 +48,7 @@ public class App {
                 Prime.run();
                 break;
             default:
-                return;
+                throw new RuntimeException("Unknown user choice " + userAnswer);
         }
 
         scanner.close();
